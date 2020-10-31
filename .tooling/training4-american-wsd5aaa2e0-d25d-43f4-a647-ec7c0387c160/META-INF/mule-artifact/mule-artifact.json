@@ -13,8 +13,7 @@
       "exportedPackages": [],
       "exportedResources": [
         "log4j2.xml",
-        "wt-4-building-apis.xml",
-        "application-types.xml"
+        "wt-4-building-apis.xml"
       ]
     }
   },
