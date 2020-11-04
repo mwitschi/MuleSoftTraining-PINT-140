@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<mule xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd 
-http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
-    <apikit:config name="american-flights-api-versuch-2-config" api="resource::4b04d520-06ce-44c2-9bd6-f6f979c122c5:american-flights-api:1.0.1:raml:zip:american-flights-api-versuch-2.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
+<mule xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd  http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+    <apikit:config name="american-flights-api-versuch-2-config" api="resource::4b04d520-06ce-44c2-9bd6-f6f979c122c5:american-flights-api:1.0.2:raml:zip:american-flights-api-versuch-2.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
     <flow name="american-flights-api-versuch-2-main">
         <http:listener config-ref="HTTP_Listener_config_8081" path="/api/*">
             <http:response statusCode="#[vars.httpStatus default 200]">
@@ -15,7 +14,7 @@ http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/
         <apikit:router config-ref="american-flights-api-versuch-2-config" />
         <error-handler>
             <on-error-propagate type="APIKIT:BAD_REQUEST">
-                <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+                <ee:transform xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
                     <ee:message>
                         <ee:set-payload><![CDATA[%dw 2.0
 output application/json
@@ -28,7 +27,7 @@ output application/json
                 </ee:transform>
             </on-error-propagate>
             <on-error-propagate type="APIKIT:NOT_FOUND">
-                <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+                <ee:transform xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
                     <ee:message>
                         <ee:set-payload><![CDATA[%dw 2.0
 output application/json
@@ -41,7 +40,7 @@ output application/json
                 </ee:transform>
             </on-error-propagate>
             <on-error-propagate type="APIKIT:METHOD_NOT_ALLOWED">
-                <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+                <ee:transform xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
                     <ee:message>
                         <ee:set-payload><![CDATA[%dw 2.0
 output application/json
@@ -54,7 +53,7 @@ output application/json
                 </ee:transform>
             </on-error-propagate>
             <on-error-propagate type="APIKIT:NOT_ACCEPTABLE">
-                <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+                <ee:transform xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
                     <ee:message>
                         <ee:set-payload><![CDATA[%dw 2.0
 output application/json
@@ -67,7 +66,7 @@ output application/json
                 </ee:transform>
             </on-error-propagate>
             <on-error-propagate type="APIKIT:UNSUPPORTED_MEDIA_TYPE">
-                <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+                <ee:transform xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
                     <ee:message>
                         <ee:set-payload><![CDATA[%dw 2.0
 output application/json
@@ -80,7 +79,7 @@ output application/json
                 </ee:transform>
             </on-error-propagate>
             <on-error-propagate type="APIKIT:NOT_IMPLEMENTED">
-                <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+                <ee:transform xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
                     <ee:message>
                         <ee:set-payload><![CDATA[%dw 2.0
 output application/json
@@ -107,7 +106,7 @@ output application/json
         <apikit:console config-ref="american-flights-api-versuch-2-config" />
         <error-handler>
             <on-error-propagate type="APIKIT:NOT_FOUND">
-                <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+                <ee:transform xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
                     <ee:message>
                         <ee:set-payload><![CDATA[%dw 2.0
 output application/json
@@ -122,12 +121,12 @@ output application/json
         </error-handler>
     </flow>
     <flow name="delete:\flights\(ID):american-flights-api-versuch-2-config">
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core">
+        <ee:transform>
             <ee:variables>
                 <ee:set-variable variableName="ID">attributes.uriParams.'ID'</ee:set-variable>
             </ee:variables>
         </ee:transform>
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+        <ee:transform xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
             <ee:message>
                 <ee:set-payload><![CDATA[%dw 2.0
 output application/json
@@ -139,19 +138,36 @@ output application/json
         </ee:transform>
     </flow>
     <flow name="get:\flights:american-flights-api-versuch-2-config">
-		<flow-ref doc:name="getFlights" doc:id="8d0bb28e-dfec-4a99-a9cc-4daf304bd393" name="getFlights"/>
+        <flow-ref doc:name="getFlights" doc:id="8d0bb28e-dfec-4a99-a9cc-4daf304bd393" name="getFlights" />
     </flow>
     <flow name="get:\flights\(ID):american-flights-api-versuch-2-config">
-		<flow-ref doc:name="getFlightsbyID" doc:id="da9ba3d7-75bd-48f5-9e64-131db77dfd28" name="getFlightsbyID"/>
+        <flow-ref doc:name="getFlightsbyID" doc:id="da9ba3d7-75bd-48f5-9e64-131db77dfd28" name="getFlightsbyID" />
     </flow>
     <flow name="post:\flights:application\json:american-flights-api-versuch-2-config">
-        <ee:transform xmlns:ee="http://www.mulesoft.org/schema/mule/ee/core" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+        <ee:transform xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
             <ee:message>
                 <ee:set-payload><![CDATA[%dw 2.0
 output application/json
 ---
 {
   message: "Flight added (but not really)"
+}]]></ee:set-payload>
+            </ee:message>
+        </ee:transform>
+    </flow>
+    <flow name="put:\flights\(ID):application\json:american-flights-api-versuch-2-config">
+        <ee:transform>
+            <ee:variables>
+                <ee:set-variable variableName="ID">attributes.uriParams.'ID'</ee:set-variable>
+            </ee:variables>
+        </ee:transform>
+        <ee:transform xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
+            <ee:message>
+                <ee:set-payload><![CDATA[%dw 2.0
+output application/json
+---
+{
+  message: "Flight updated (but not really)"
 }]]></ee:set-payload>
             </ee:message>
         </ee:transform>
