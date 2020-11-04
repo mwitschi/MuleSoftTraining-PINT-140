@@ -1,5 +1,6 @@
 {
   "configs": [
+    "american-flights-api-versuch-2.xml",
     "wt-4-building-apis.xml"
   ],
   "secureProperties": [],
@@ -14,6 +15,7 @@
       "exportedResources": [
         "log4j2.xml",
         "wt-4-building-apis.xml",
+        "american-flights-api-versuch-2.xml",
         "application-types.xml",
         "examples/american-flights-example.json"
       ]
