@@ -89,10 +89,10 @@ Driver class name: org.apache.derby.jdbc.ClientDriver
 
 * American Flights API - /{ID} PUT method    put:      body:        application/json:          type: AmericanFlight          examples:            input: !include examples/AmericanFlightNoIDExample.raml      responses:        200:          body:            application/json:              example:                message: Flight updated (but not really)* MODULE 5 **********************************************************
 
-* Your client ID
+* Your client ID : 6b2e1b2884054e408466bedca1201585
 
 
-* Your client secret
+* Your client secret : 59E61105369349d6A79f8ffC86cc5428
 
 * MODULE 7 **********************************************************
 
