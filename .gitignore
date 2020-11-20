@@ -42,7 +42,7 @@ local.properties
 # Studio-specific #
 # --------------- #
 target/
-.mule/**
-.mule/**/*
+.mule/*
+.tooling/*
 .DS_Store
 velocity.log
