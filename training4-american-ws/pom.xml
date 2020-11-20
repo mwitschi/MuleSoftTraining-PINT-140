@@ -50,12 +50,6 @@
             <classifier>mule-plugin</classifier>
         </dependency>
     	<dependency>
-            <groupId>org.mule.modules</groupId>
-            <artifactId>mule-apikit-module</artifactId>
-            <version>1.3.16</version>
-            <classifier>mule-plugin</classifier>
-        </dependency>
-    	<dependency>
             <groupId>4b04d520-06ce-44c2-9bd6-f6f979c122c5</groupId>
             <artifactId>american-flights-api</artifactId>
             <version>1.0.2</version>
@@ -69,14 +63,20 @@
         </dependency>
     	<dependency>
             <groupId>org.mule.connectors</groupId>
-            <artifactId>mule-http-connector</artifactId>
-            <version>1.5.22</version>
+            <artifactId>mule-db-connector</artifactId>
+            <version>1.9.0</version>
+            <classifier>mule-plugin</classifier>
+        </dependency>
+    	<dependency>
+            <groupId>org.mule.modules</groupId>
+            <artifactId>mule-apikit-module</artifactId>
+            <version>1.3.18</version>
             <classifier>mule-plugin</classifier>
         </dependency>
     	<dependency>
             <groupId>org.mule.connectors</groupId>
-            <artifactId>mule-db-connector</artifactId>
-            <version>1.8.3</version>
+            <artifactId>mule-http-connector</artifactId>
+            <version>1.5.23</version>
             <classifier>mule-plugin</classifier>
         </dependency>
     </dependencies>
