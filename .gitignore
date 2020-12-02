@@ -46,3 +46,4 @@ target/
 .tooling/*
 .DS_Store
 velocity.log
+.metadata/*
