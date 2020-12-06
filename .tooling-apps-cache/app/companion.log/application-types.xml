@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="Input-File-Format" format="json">
+      <types:shape format="weave" example="examples/companion.json"><![CDATA[%dw 2.0
+
+type Input_File_Format = Array<{|  namespace: String,   date: String,   message: Array<String>
+|}> {"example": "[{\\\"namespace\\\":\\\"adc:manifest-controller\\\",\\\"date\\\":\\\"2020-12-06T16:04:47.951Z\\\",\\\"message\\\":[\\\"enabling manifest:\\\",\\\"file\\\"]},{\\\"namespace\\\":\\\"adc:manifest-controller\\\",\\\"date\\\":\\\"2020-12-06T16:04:47.953Z\\\",\\\"message\\\":[\\\"disabling manifest:\\\",\\\"screen\\\"]},{\\\"namespace\\\":\\\"adc:manifest-controller\\\",\\\"date\\\":\\\"2020-12-06T16:04:47.953Z\\\",\\\"message\\\":[\\\"enabling manifest:\\\",\\\"feedback\\\"]},{\\\"namespace\\\":\\\"adc:manifest-controller\\\",\\\"date\\\":\\\"2020-12-06T16:04:47.953Z\\\",\\\"message\\\":[\\\"enabling manifest:\\\",\\\"license\\\"]},{\\\"namespace\\\":\\\"adc:manifest-controller\\\",\\\"date\\\":\\\"2020-12-06T16:04:47.953Z\\\",\\\"message\\\":[\\\"enabling manifest:\\\",\\\"feedback\\\"]},{\\\"namespace\\\":\\\"adc:dock-icon-manager\\\",\\\"date\\\":\\\"2020-12-06T16:04:47.974Z\\\",\\\"message\\\":[\\\"hooking\\\"]},{\\\"namespace\\\":\\\"adc:auto-updater\\\",\\\"date\\\":\\\"2020-12-06T16:04:48.013Z\\\",\\\"message\\\":[\\\"using update URL for channel:\\\",\\\"stable\\\"]},{\\\"namespace\\\":\\\"adc:auto-updater\\\",\\\"date\\\":\\\"2020-12-06T16:04:48.013Z\\\",\\\"message\\\":[\\\"constructed URL:\\\",\\\"https:\\/\\/update-nucleus.atlassian.com\\/Atlassian-Companion\\/291cb34fe2296e5fb82b83a04704c9b4\\/darwin\\/x64\\/RELEASES.json?method=JSON&version=0.6.2\\\"]},{\\\"namespace\\\":\\\"adc:auto-updater\\\",\\\"date\\\":\\\"2020-12-06T16:04:48.021Z\\\",\\\"message\\\":[\\\"autoUpdate initialized successfully\\\"]},{\\\"namespace\\\":\\\"adc:file-manager\\\",\\\"date\\\":\\\"2020-12-06T16:04:48.109Z\\\",\\\"message\\\":[\\\"clearing file manager cache\\\"]},{\\\"namespace\\\":\\\"adc:browser\\\",\\\"date\\\":\\\"2020-12-06T16:04:48.128Z\\\",\\\"message\\\":[\\\"launching websocket\\\"]},{\\\"namespace\\\":\\\"adc:browser\\\",\\\"date\\\":\\\"2020-12-06T16:04:48.133Z\\\",\\\"message\\\":[\\\"direct websocket launched successfully on port:\\\",31459]},{\\\"namespace\\\":\\\"adc:settings\\\",\\\"date\\\":\\\"2020-12-06T16:04:48.134Z\\\",\\\"message\\\":[\\\"opening settings store\\\"]},{\\\"namespace\\\":\\\"adc:auto-updater\\\",\\\"date\\\":\\\"2020-12-06T16:04:48.137Z\\\",\\\"message\\\":[\\\"checking for update\\\"]},{\\\"namespace\\\":\\\"adc:browser\\\",\\\"date\\\":\\\"2020-12-06T16:04:48.141Z\\\",\\\"message\\\":[\\\"ssl websocket launched successfully on port:\\\",22274]},{\\\"namespace\\\":\\\"adc:analytics\\\",\\\"date\\\":\\\"2020-12-06T16:04:48.161Z\\\",\\\"message\\\":[\\\"event\\\",\\\"companion.start\\\",{\\\"new\\\":false},\\\"a02cae73-290b-4197-b246-4507639b3fae\\\"]},{\\\"namespace\\\":\\\"adc:core\\\",\\\"date\\\":\\\"2020-12-06T16:04:48.219Z\\\",\\\"message\\\":[\\\"generating tray menu from manifests\\\"]},{\\\"namespace\\\":\\\"adc:websocket:auth\\\",\\\"date\\\":\\\"2020-12-06T16:04:48.224Z\\\",\\\"message\\\":[\\\"detecting time offset from true time as:\\\",-1]},{\\\"namespace\\\":\\\"adc:auto-updater\\\",\\\"date\\\":\\\"2020-12-06T16:04:48.235Z\\\",\\\"message\\\":[\\\"update available\\\"]},{\\\"namespace\\\":\\\"adc:auto-updater\\\",\\\"date\\\":\\\"2020-12-06T16:04:55.687Z\\\",\\\"message\\\":[\\\"update error\\\",{\\\"message\\\":\\\"ditto: \\/Users\\/markus\\/Library\\/Caches\\/com.electron.companion.ShipIt\\/update.3D0ltYq\\/Atlassian Companion.app\\/Contents\\/Resources\\/app.asar: No space left on device\\\\nditto: Couldn't read pkzip signature.\\\",\\\"stack\\\":\\\"Error: ditto: \\/Users\\/markus\\/Library\\/Caches\\/com.electron.companion.ShipIt\\/update.3D0ltYq\\/Atlassian Companion.app\\/Contents\\/Resources\\/app.asar: No space left on device\\\\nditto: Couldn't read pkzip signature.\\\"}]},{\\\"namespace\\\":\\\"adc:auto-updater\\\",\\\"date\\\":\\\"2020-12-06T16:09:55.695Z\\\",\\\"message\\\":[\\\"checking for update\\\"]},{\\\"namespace\\\":\\\"adc:auto-updater\\\",\\\"date\\\":\\\"2020-12-06T16:09:55.785Z\\\",\\\"message\\\":[\\\"update available\\\"]},{\\\"namespace\\\":\\\"adc:auto-updater\\\",\\\"date\\\":\\\"2020-12-06T16:14:55.799Z\\\",\\\"message\\\":[\\\"checking for update\\\"]},{\\\"namespace\\\":\\\"adc:auto-updater\\\",\\\"date\\\":\\\"2020-12-06T16:14:55.866Z\\\",\\\"message\\\":[\\\"update available\\\"]}]"}
+
+]]></types:shape>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#805e5cef-01b3-4db7-ad6f-ac299700b591">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="Input-File-Format[]"/>
+          <types:attributes type="Input-File-Format"/>
+        </types:message>
+      </types:input-event>
+      <types:output-event>
+        <types:message>
+          <types:payload type="Input-File-Format"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>
