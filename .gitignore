@@ -45,4 +45,5 @@ target/
 .mule/*
 .tooling/*
 .DS_Store
+.metadata/*
 velocity.log
