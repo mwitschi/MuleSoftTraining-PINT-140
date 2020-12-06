@@ -23,8 +23,8 @@ tmp/**/*
 local.properties
 .settings/
 .loadpath
-#.project - Informationen zu MuleSoft Projekt wichtig für die Erkennung des Projektes durch AnypointStudio
-#.classpath - Informationen zu MuleSoft Projekt
+.project
+.classpath
 
 # External tool builders
 .externalToolBuilders/
@@ -42,9 +42,7 @@ local.properties
 # Studio-specific #
 # --------------- #
 target/
-.mule/*
-.tooling/*
+.mule/**
+.mule/**/*
 .DS_Store
-.metadata/*
 velocity.log
-.metadata/*

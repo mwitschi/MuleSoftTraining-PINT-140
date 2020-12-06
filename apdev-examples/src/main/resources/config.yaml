@@ -1,0 +1,8 @@
+http:
+  port: "8082"
+  
+sfdc:
+  username: "markus.witschi@interdiscount.ch"
+  password: "NENK9scod*rhot9zid"
+  token: "ZLy8VbnEkyPtjvRlgPgAs2Emk"
+    
